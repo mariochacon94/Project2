@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Huntington Club</title>
+<link rel="stylesheet" href="project2.css">
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <h1>The Huntington Club</h1>
+    </header>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="Golf.html">Golf</a>
+      <a href="#">Tennis/Pickleball</a>
+      <a href="memberevents.html">Member Events</a>
+    </nav>
+
+
+    <div class="slideshow-container">
+
+      <div class="slide fade">
+        <img src="Huntington Club Project Picture.jpg" alt="Golf Course">
+        <div class="caption">THC Golf Course</div>
+      </div>
+  
+      <div class="slide fade">
+        <img src="THCpicture2.jpg" alt="Wedding">
+        <div class="caption">The Huntington Club Wedding</div>
+      </div>
+  
+      <div class="slide fade">
+        <img src="THCpicture3.jpg" alt="Clubhouse">
+        <div class="caption">The Huntington Club</div>
+      </div>
+  
+  
+  
+    </div>
+  
+    <script>
+      let slideIndex = 0;
+      showSlides();
+  
+      function plusSlides(n) {
+        slideIndex += n;
+        showSlides(true);
+      }
+  
+      function showSlides(manual = false) {
+        const slides = document.getElementsByClassName("slide");
+        if (slideIndex >= slides.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+  
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+  
+        slides[slideIndex].style.display = "block";
+  
+        if (!manual) {
+          setTimeout(() => {
+            slideIndex++;
+            showSlides();
+          }, 5000); // Change image every 5 seconds
+        }
+      }
+    </script>
+
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required><br>
+    
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+    
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject"><br>
+    
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" cols="40"></textarea><br>
+    
+      <label for="newsletter">Subscribe to newsletter:</label>
+      <input type="checkbox" id="newsletter" name="newsletter"><br>
+    
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+
+    <footer class="footer">
+      <p>&copy; 2025 The Huntington Club</p>
+    </footer>
+  </div>
+
+</body>
+</html>
