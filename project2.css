@@ -1,9 +1,9 @@
-@charset "utf-8";
+
+
+
 
 
 <style>
-
-
     
 body {
       font-family: Arial, sans-serif;
@@ -290,3 +290,4 @@ form input[type="reset"]:hover {
   opacity: 0;
 }
 
+</style>
