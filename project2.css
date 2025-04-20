@@ -38,7 +38,7 @@ body {
 
     .main {
       display: flex;
-      gap: 20px;
+      gap: 0px;
     }
 
     .main .left, .main .right {
@@ -288,6 +288,19 @@ form input[type="reset"]:hover {
   backdrop-filter: blur(10px);
   animation: slideIn 1.5s ease forwards;
   opacity: 0;
+}
+
+.card {
+  flex: 1;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 </style>
