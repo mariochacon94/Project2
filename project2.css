@@ -1,136 +1,36 @@
+/* ===== Reset & Base Styles ===== */
+*
 
-
-
-
-
-<style>
-    
-body {
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      background-color: rgb(248, 225, 203);
-      flex-direction: column;
-    }
-    
-  
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-  
-
-    .nav {
-      background-color: #333;
-      padding: 15px;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 15px;
-    }
-
-    .main {
-      display: flex;
-      gap: 0px;
-    }
-
-    .main .left, .main .right {
-      flex: 1;
-      padding: 20px;
-      background-color: #f3e4e4;
-      border-radius: 8px;
-    }
-
-    .footer {
-      background-color: #060606;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-
-  </style>
-
-  
-
-  .header {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);  ]
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-
-  .container h1 {
-    font-size: 4rem;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: bold;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    animation: slideIn 2s ease-out;
-    text-align: center;
-  }
-
-  @keyframes slideIn {
-    0% {
-      transform: translateY(-100px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-
-.nav {
-  background-color: #080808;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-.nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 15px;
-  padding: 10px;
-  border-radius: 5px;
-}
 
-.nav a:hover {
-  background-color: #272222;
-}
-
-.header {
-  background-color: #020202;
-  color: white;
-}
-
-/* Reset & Base Styles */
-* {
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  background-color: #000;
+  margin: 0;
+  padding: 40px 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f4f4;
-  color: #333;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Container layout */
+
+
+
+
+/* ===== Layout Containers ===== */
 .container {
   flex: 1;
   display: flex;
@@ -138,42 +38,142 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  gap: 20px;
 }
 
-/* Header */
+/* ===== Navigation Bar ===== */
+.nav {
+  width: 100%;
+  background-color: #080808;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  margin: 0; /* removes any default margin */
+}
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: #272222;
+}
+
+/* ===== Header ===== */
+
+
 .header {
-  text-align: center;
-  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  height: 500px; /* You can increase this if the video feels squished */
+  overflow: hidden;
+  background: black; /* Optional: shows behind the video if aspect ratio doesn't match */
+  border-radius: 12px;
+}
+.header-video {
+  position: relative;
+  top: 20%; /* Adjust this value to move the video down (try 10%, 20%, 30% etc.) */
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%); /* This ensures the video stays centered horizontally */
+   /* Keeps the video filling the header area */
+  z-index: 0;
 }
 
 
 
-
-
-/* Main content side-by-side layout */
-.slideshow-container,
-form {
-  flex: 1;
-}
-
-.slideshow-form-wrapper {
+/* ===== Main Content Area ===== */
+.main {
   display: flex;
   gap: 40px;
-  align-items: stretch;
-  justify-content: center;
-  margin: 40px 0;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 1200px;
   width: 100%;
+  margin: 40px 0;
 }
 
-/* Slideshow styling */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Space between the two sections */
+  padding: 20px;
+}
+
+/* Left & Right Columns (if used separately) */
+.main .left,
+.main .right {
+  flex: 1;
+  padding: 20px;
+  background-color: #fdf9f9;
+  border-radius: 8px;
+}
+
+
+.left-section,
+.right-section {
+  min-height: 500px;
+  flex: 1 ;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.left-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.left-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+
+/* Right section (Image Cascade) */
+.right-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row; /* Stack the images vertically */
+  gap: 20px;
+}
+
+.cascade-img {
+  width:30%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cascade-img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== Slideshow Styles ===== */
 .slideshow-container {
   position: relative;
   width: 100%;
   max-width: 600px;
   aspect-ratio: 16 / 9;
-  border: 5px solid #ccc;
+  border: 5px solid #f5f3f3;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -183,7 +183,7 @@ form {
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: fade 1.5s ease-in-out;
+  animation: fade .5s ease-in-out;
 }
 
 .slide img {
@@ -193,20 +193,29 @@ form {
   filter: brightness(85%);
 }
 
-
-
-@keyframes fade {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+.caption {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 5px solid rgb(238, 235, 237);
+  padding: 20px 30px;
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  animation: slideIn 1.5s ease forwards;
+  opacity: 0;
 }
 
-/* Form styling */
+/* ===== Form Styles ===== */
 form {
   max-width: 500px;
   background: #fff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
 form h2 {
@@ -231,6 +240,7 @@ form textarea {
   font-size: 1rem;
 }
 
+
 form input[type="checkbox"] {
   margin-left: 5px;
 }
@@ -242,7 +252,7 @@ form input[type="reset"] {
   font-size: 1rem;
   border: none;
   color: #fff;
-  
+  background-color: #f39c12;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -250,20 +260,84 @@ form input[type="reset"] {
 
 form input[type="submit"]:hover,
 form input[type="reset"]:hover {
-  background-color: #f39c12;
+  background-color: #d78f00;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer {
   text-align: center;
   margin-top: 50px;
   color: #888;
   font-size: 0.9rem;
+  background-color: #060606;
+  color: white;
+  padding: 10px;
+  width: 100%;
 }
 
-/* Responsive tweaks */
+/* ===== Cards (if used) ===== */
+.card-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  flex: 1 1 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* ===== Animations ===== */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Responsive Tweaks ===== */
 @media (max-width: 1000px) {
-  .slideshow-form-wrapper {
+  .main {
     flex-direction: column;
     align-items: center;
   }
@@ -274,33 +348,16 @@ form input[type="reset"]:hover {
   }
 }
 
-/* Caption styling */
-.caption {
-  position: absolute;
-  bottom: 40px;
-  left: 50px;
-  background: rgba(0, 0, 0, 0.5);
-  border-left: 5px solid #f08;
-  padding: 20px 30px;
-  font-size: 2rem;
-  font-family: 'Playfair Display', serif;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  animation: slideIn 1.5s ease forwards;
-  opacity: 0;
-}
 
-.card {
-  flex: 1;
-}
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
 
-</style>
+
+  .left-section,
+  .right-section {
+    flex: 1 1 100%;
+  }
+}
